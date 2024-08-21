@@ -1,5 +1,6 @@
 I developed a responsive website that allows users to search for games or browse through them by scrolling. The site features a switch for dark and light modes and is optimized for use on phones and tablets. Chakra UI was used as the CSS framework, with Bootstrap icons integrated for design elements.
-some pictures:
+
+main window:
 ![צילום מסך 2024-08-21 140755](https://github.com/user-attachments/assets/e7bfb553-3ae3-4818-a2e7-389ad210c730)
 
 using Search bar:
