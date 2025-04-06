@@ -211,17 +211,17 @@ function MovieDetails() {
 
   if (!movie) return <p>טוען...</p>;
 
-  return (
-    <div className="movie-details">
-      <h1>{movie.Title}</h1>
-      <img src={movie.Poster} alt={movie.Title} />
-      <p>{movie.Plot}</p>
-      <p>📅 שנה: {movie.Year}</p>
-      <p>⭐ דירוג: {movie.imdbRating}</p>
-      <p>🎭 ז'אנר: {movie.Genre}</p>
-      <p>⏳ משך: {movie.Runtime}</p>
-    </div>
-  );
+//  return (
+//    <div className="movie-details">
+//      <h1>{movie.Title}</h1>
+//      <img src={movie.Poster} alt={movie.Title} />
+//      <p>{movie.Plot}</p>
+//      <p>📅 שנה: {movie.Year}</p>
+//      <p>⭐ דירוג: {movie.imdbRating}</p>
+//      <p>🎭 ז'אנר: {movie.Genre}</p>
+//      <p>⏳ משך: {movie.Runtime}</p>
+//    </div>
+//  );
 }
 
 export default MovieDetails;
