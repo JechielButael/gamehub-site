@@ -35,83 +35,84 @@ export default App;
 
 HomePage.jsx:
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../styles/home.css";
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
+// import "../styles/home.css";
 
-const API_KEY = "9977c172";
+// const API_KEY = "9977c172";
 
-function HomePage() {
-  const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortOrder, setSortOrder] = useState("newest");
+// function HomePage() {
+//   const [movies, setMovies] = useState([]);
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [sortOrder, setSortOrder] = useState("newest");
 
-  const fetchMovies = async () => {
-    if (!searchTerm) return;
-    try {
-      const res = await fetch(
-        `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
-      );
-      const data = await res.json();
-      if (data.Search) {
-        setMovies(data.Search);
-      } else {
-        setMovies([]);
-      }
-    } catch (error) {
-      console.error("Error fetching movies:", error);
-    }
-  };
+//   const fetchMovies = async () => {
+//     if (!searchTerm) return;
+//     try {
+//       const res = await fetch(
+//         `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
+//       );
+//       const data = await res.json();
+//       if (data.Search) {
+//         setMovies(data.Search);
+//       } else {
+//         setMovies([]);
+//       }
+//     } catch (error) {
+//       console.error("Error fetching movies:", error);
+//     }
+//   };
 
-  const sortedMovies = [...movies].sort((a, b) => {
-    const yearA = parseInt(a.Year);
-    const yearB = parseInt(b.Year);
-    return sortOrder === "newest" ? yearB - yearA : yearA - yearB;
-  });
+//   const sortedMovies = [...movies].sort((a, b) => {
+//     const yearA = parseInt(a.Year);
+//     const yearB = parseInt(b.Year);
+//     return sortOrder === "newest" ? yearB - yearA : yearA - yearB;
+//   });
 
-  return (
-    <div className="home-container">
-      <h1>🎬 חפש סרט</h1>
-      <input
-        type="text"
-        placeholder="חפש סרט..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && fetchMovies()}
-      />
-      <button onClick={fetchMovies}>🔍 חפש</button>
+//   return (
+//     <div className="home-container">
+//       <h1>🎬 חפש סרט</h1>
+//       <input
+//         type="text"
+//         placeholder="חפש סרט..."
+//         value={searchTerm}
+//         onChange={(e) => setSearchTerm(e.target.value)}
+//         onKeyDown={(e) => e.key === "Enter" && fetchMovies()}
+//       />
+//       <button onClick={fetchMovies}>🔍 חפש</button>
 
-      <div className="sort-container">
-        <label>
-          מיון לפי תאריך:
-          <select
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-          >
-            <option value="newest">מהחדש לישן</option>
-            <option value="oldest">מהישן לחדש</option>
-          </select>
-        </label>
-      </div>
+//       <div className="sort-container">
+//         <label>
+//           מיון לפי תאריך:
+//           <select
+//             value={sortOrder}
+//             onChange={(e) => setSortOrder(e.target.value)}
+//           >
+//             <option value="newest">מהחדש לישן</option>
+//             <option value="oldest">מהישן לחדש</option>
+//           </select>
+//         </label>
+//       </div>
 
-      <div className="movies-grid">
-        {sortedMovies.map((movie) => (
-          <Link
-            to={`/movie/${movie.imdbID}`}
-            key={movie.imdbID}
-            className="movie-card"
-          >
-            <img src={movie.Poster} alt={movie.Title} />
-            <h3>{movie.Title}</h3>
-            <p>📅 {movie.Year}</p>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
+//       <div className="movies-grid">
+//         {sortedMovies.map((movie) => (
+//           <Link
+//             to={`/movie/${movie.imdbID}`}
+//             key={movie.imdbID}
+//             className="movie-card"
+//           >
+//             <img src={movie.Poster} alt={movie.Title} />
+//             <h3>{movie.Title}</h3>
+//             <p>📅 {movie.Year}</p>
+//           </Link>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
-export default HomePage;
+// export default HomePage;
+
 
 HomePage.css:
 
